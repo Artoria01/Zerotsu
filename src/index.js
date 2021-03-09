@@ -11,6 +11,10 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+module.exports = client => {
+	client.user.setPresence({ activity: { name: 'o! || Artoria00', type: 'PLAYING' }, status: 'dnd'});
+}
+
 client.once('ready', () => console.log('READY!'));
 client.on('message', message => {
 	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
