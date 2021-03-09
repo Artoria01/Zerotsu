@@ -11,10 +11,6 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-module.exports = client => {
-	client.user.setPresence({ activity: { name: 'o! || Artoria00', type: 'PLAYING' }, status: 'dnd'});
-}
-
 client.once('ready', () => console.log('READY!'));
 client.on('message', message => {
 	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
@@ -51,5 +47,9 @@ client.on('message', message => {
 		message.reply('il y a eu une erreur en essayant d\'exécuter cette commande!');
 	}
 });
+
+module.exports = client => {
+	client.user.setPresence({ activity: { name: 'o! || Artoria00', type: 'PLAYING' }, status: 'dnd'});
+}
 
 client.login(client.config.token);
